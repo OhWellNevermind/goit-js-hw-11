@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 const API_KEY = '38376053-36f58a073519ff95a963b2d32';
 
 const elements = {
@@ -28,7 +29,7 @@ elements.form.addEventListener('submit', event => {
       });
     })
     .then(images => {
-      images
+      const html = images
         .map(
           ({
             webformatURL,
@@ -60,6 +61,7 @@ elements.form.addEventListener('submit', event => {
           }
         )
         .join();
+      elements.gallery.insertAdjacentHTML('beforeend', html);
     });
 });
 
