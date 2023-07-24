@@ -1,22 +1,39 @@
+body {
+  background: #07051a;
+  color: beige;
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+}
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
-  width: 1458px;
+  width: 1200px;
   padding-left: 16px;
   padding-right: 16px;
   margin-left: auto;
   margin-right: auto;
 }
 
+form:hover .fa,
+form:valid .fa {
+  background: #07051a;
+  color: white;
+}
+
 .gallery {
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px 20px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -24,20 +41,28 @@ img {
 }
 
 .gallery__image {
-  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 320px;
   max-height: 200px;
   border-radius: 15px;
 }
 
 .search-form {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  background-color: aqua;
+  margin-top: 50px;
+  position: fixed;
+  z-index: 100;
+  top: 0%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 5px;
 }
 
 .gallery__link:hover {
@@ -45,19 +70,91 @@ img {
 }
 
 .info {
+  padding: 10px 10px 0px 10px;
   display: grid;
   grid-auto-flow: column dense; /* column flow with "dense" to fill all the cells */
   grid-template-rows: 50px 50px; /* 2 rows */
   grid-auto-columns: 150px;
 }
 
-.form-btn {
-  border-radius: 5px;
-  padding: 5px;
-  background-color: beige;
+.search-img {
+  width: 20px;
+  height: 20px;
 }
 
 .form-input {
-  border-radius: 5px;
   background-color: beige;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.form-btn {
+  padding: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: gold;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover,
+form:valid {
+  width: 200px;
+  cursor: pointer;
+}
+
+form:hover input,
+form:valid input {
+  display: block;
+}
+
+form:hover .fa,
+form:valid .fa {
+  background: #07051a;
+  color: white;
+}
+
+.photo-card-div {
+  height: 300px;
+}
+
+.photo-card {
+  display: block;
+}
+
+.img-back {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  border-radius: 15px;
+  background: #130d4d6b;
+}
+
+.load-more {
+  height: 40px;
+  border-radius: 10px;
+  background-color: beige;
+}
+
+.load-more:hover {
+  background-color: gold;
 }

@@ -96,9 +96,9 @@ function hadleSubmit(event) {
       elements.gallery.insertAdjacentHTML('beforeend', html);
 
       lightbox = lightbox.refresh();
+      elements.loadBtn.classList.remove('hidden');
     });
   page = 2;
-  elements.loadBtn.classList.remove('hidden');
 }
 
 async function fetchImages(url) {
@@ -130,22 +130,26 @@ function createMarkUp(array) {
       }) => {
         return `
             <li class="photo-card">
-              <a class="gallery__link" href="${largeImageURL}">
-                  <img class="gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" />
-              </a>
-              <div class="info">
-                  <p class="info-item">
-                  <b>Likes: </b>${likes}
-                  </p>
-                  <p class="info-item">
-                  <b>Views: </b>${views}
-                  </p>
-                  <p class="info-item">
-                  <b>Comments: </b>${comments}
-                  </p>
-                  <p class="info-item">
-                  <b>Downloads: </b>${downloads}
-                  </p>
+            <div class="photo-card-div">
+<div class="img-back">
+                 <a class="gallery__link" href="${largeImageURL}">
+                      <img class="gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" />
+                  </a>
+</div>
+                <div class="info">
+                    <p class="info-item">
+                    <b>Likes: </b>${likes}
+                    </p>
+                    <p class="info-item">
+                    <b>Views: </b>${views}
+                    </p>
+                    <p class="info-item">
+                    <b>Comments: </b>${comments}
+                    </p>
+                    <p class="info-item">
+                    <b>Downloads: </b>${downloads}
+                    </p>
+                </div>
               </div>
             </li>`;
       }
