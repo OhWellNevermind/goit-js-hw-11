@@ -76,7 +76,11 @@ function hadleSubmit(event) {
   const url = generatePixabayURL(userQuery);
   fetchImages(url)
     .then(({ data, totalHits }) => {
-      console.log(data);
+      console.log(page > totalHits / IMG_COUNT);
+      if (Math.ceil(page < totalHits / IMG_COUNT)) {
+        elements.loadBtn.classList.remove('hidden');
+      }
+
       Notiflix.Notify.success(`We found total ${totalHits} images!`);
       return data.map(image => {
         return {
@@ -97,7 +101,6 @@ function hadleSubmit(event) {
       elements.gallery.insertAdjacentHTML('beforeend', html);
 
       elements.lightbox.refresh();
-      elements.loadBtn.classList.remove('hidden');
     })
     .catch(error => {
       return;
