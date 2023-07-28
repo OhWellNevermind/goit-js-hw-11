@@ -16,7 +16,6 @@ elements.loadBtn.addEventListener('click', handleLoadClick);
 function handleLoadClick() {
   const userQuery = elements.input.value;
   const url = generatePixabayURL(userQuery);
-  console.log(url);
   page += 1;
   fetchImages(url)
     .then(({ data, totalHits }) => {
@@ -76,7 +75,6 @@ function hadleSubmit(event) {
   const url = generatePixabayURL(userQuery);
   fetchImages(url)
     .then(({ data, totalHits }) => {
-      console.log(page > totalHits / IMG_COUNT);
       if (Math.ceil(page < totalHits / IMG_COUNT)) {
         elements.loadBtn.classList.remove('hidden');
       }
